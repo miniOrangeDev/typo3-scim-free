@@ -1,0 +1,163 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="tabcontent" id="Attribute_Mapping">
+    <div class="scim-config-layout">
+        <div class="scim-config-left">
+            <h3><strong>Attribute Mapping</strong></h3>
+            <hr>
+
+            <div class="col-lg-10 tile scim-config-card">
+                <form action="" method="post" id="attribute_mapping_form">
+                    <input type="hidden" name="option" value="mo_scim_save_attribute_mapping"/>
+                    <input type="hidden" name="mo_scim_form_token" value="{formToken}"/>
+
+                    <fieldset class="scim-config-fieldset" {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}>
+                        <h4><strong>Standard SCIM Attributes</strong></h4>
+
+                        <div class="scim-form-row">
+                            <label class="scim-form-label" for="mo_scim_attr_username"><strong>Username</strong></label>
+                            <div class="scim-form-field">
+                                <input class="form-control" id="mo_scim_attr_username" name="mo_scim_attr_username"
+                                       type="text" value="{attr_username}" placeholder="{attr_username_placeholder}"
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                            </div>
+                        </div>
+
+                        <div class="scim-form-row">
+                            <label class="scim-form-label" for="mo_scim_attr_email"><strong>Email</strong></label>
+                            <div class="scim-form-field">
+                                <input class="form-control" id="mo_scim_attr_email" name="mo_scim_attr_email"
+                                       type="text" value="{attr_email}" placeholder="{attr_email_placeholder}"
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                            </div>
+                        </div>
+
+                        <div class="scim-form-row">
+                            <label class="scim-form-label" for="mo_scim_attr_first_name"><strong>First Name</strong></label>
+                            <div class="scim-form-field">
+                                <input class="form-control" id="mo_scim_attr_first_name" name="mo_scim_attr_first_name"
+                                       type="text" value="{attr_first_name}" placeholder="{attr_first_name_placeholder}"
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                            </div>
+                        </div>
+
+                        <div class="scim-form-row">
+                            <label class="scim-form-label" for="mo_scim_attr_last_name"><strong>Last Name</strong></label>
+                            <div class="scim-form-field">
+                                <input class="form-control" id="mo_scim_attr_last_name" name="mo_scim_attr_last_name"
+                                       type="text" value="{attr_last_name}" placeholder="{attr_last_name_placeholder}"
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                            </div>
+                        </div>
+
+                        <div class="scim-form-row">
+                            <label class="scim-form-label" for="mo_scim_attr_group_role"><strong>Group/Role</strong></label>
+                            <div class="scim-form-field">
+                                <input class="form-control" id="mo_scim_attr_group_role" name="mo_scim_attr_group_role"
+                                       type="text" value="{attr_group_role}" placeholder="{attr_group_role_placeholder}"
+                                       disabled="disabled"/>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <hr class="scim-custom-attr-divider"/>
+
+                    <fieldset class="scim-config-fieldset">
+                        <h4><strong>Custom Attribute Mapping</strong> <span class="premiumMessage">[Available in Premium]</span></h4>
+                        <!-- <p class="help-block">Map additional database fields to IdP SCIM attributes.</p> -->
+
+                        <div class="scim-attr-accordion" id="scim_custom_attr_accordion" role="presentation">
+                            <div class="scim-attr-accordion-item">
+                                <button type="button"
+                                        class="scim-attr-accordion-header"
+                                        id="scim_custom_attr_fe_header"
+                                        aria-expanded="false"
+                                        aria-controls="scim_custom_attr_fe_panel">
+                                    <span class="scim-attr-accordion-icon" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="12" cy="7" r="4"></circle>
+                                        </svg>
+                                    </span>
+                                    <span class="scim-attr-accordion-title">Frontend User Attribute Mapping</span>
+                                    <span class="scim-attr-accordion-chevron" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div id="scim_custom_attr_fe_panel"
+                                     class="scim-attr-accordion-body"
+                                     role="region"
+                                     aria-labelledby="scim_custom_attr_fe_header"
+                                     hidden="hidden">
+                                    <fieldset class="scim-config-fieldset" disabled="disabled">
+                                        <div class="scim-form-field scim-checkbox-group">
+                                            <div class="scim-attr-accordion-enable-option">
+                                                <label class="scim-inline-checkbox">
+                                                    <input type="checkbox" name="mo_scim_enable_fe_custom_attr" value="1" disabled="disabled"/>
+                                                    Enable Frontend User Attribute Mapping
+                                                </label>
+                                                <p class="help-block">Enable mapping between IDP and frontend user attributes.</p>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <div class="scim-attr-accordion-item">
+                                <button type="button"
+                                        class="scim-attr-accordion-header"
+                                        id="scim_custom_attr_be_header"
+                                        aria-expanded="false"
+                                        aria-controls="scim_custom_attr_be_panel">
+                                    <span class="scim-attr-accordion-icon" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="scim-attr-accordion-title">Backend User Attribute Mapping</span>
+                                    <span class="scim-attr-accordion-chevron" aria-hidden="true">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </button>
+                                <div id="scim_custom_attr_be_panel"
+                                     class="scim-attr-accordion-body"
+                                     role="region"
+                                     aria-labelledby="scim_custom_attr_be_header"
+                                     hidden="hidden">
+                                    <fieldset class="scim-config-fieldset" disabled="disabled">
+                                        <div class="scim-form-field scim-checkbox-group">
+                                            <div class="scim-attr-accordion-enable-option">
+                                                <label class="scim-inline-checkbox">
+                                                    <input type="checkbox" name="mo_scim_enable_be_custom_attr" value="1" disabled="disabled"/>
+                                                    Enable Backend User Attribute Mapping
+                                                </label>
+                                                <p class="help-block">Enable mapping between IDP and admin user attributes.</p>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <div class="scim-form-row scim-form-row-actions" style="margin-top: 1.5rem;">
+                        <span class="scim-form-label"></span>
+                        <div class="scim-form-field">
+                            <button class="btn btn-primary" name="submit" type="submit" value="Save Configuration"
+                                    {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}>
+                                Save Configuration
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="scim-config-right">
+            <f:render partial="Scim/SupportForm" arguments="{email: email, formToken: formToken, formSuffix: 'attrmapping', returnTab: 'Attribute_Mapping'}" />
+        </div>
+    </div>
+</div>
+</html>

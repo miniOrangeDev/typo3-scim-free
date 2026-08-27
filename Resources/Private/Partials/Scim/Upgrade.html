@@ -1,0 +1,102 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="tabcontent" id="Upgrade_Manager" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+    <div class="main-content">
+        <div class="container_upgrade">
+            <div class="main-panel_upgrade background_gray">
+                <div class="panel-content">
+                    <div class="upgrade-banner">
+                        <div class="plan-info">
+                            <div class="plan-status">Current Plan</div>
+                            <div class="panel-title_report">{planName} <span class="plan-version">{planVersion}</span></div>
+                        </div>
+                        <div class="upgrade-action">
+                            <a href="https://plugins.miniorange.com/typo3-scim-user-provisioning-and-sync"
+                               target="_blank" class="btn btn-primary" style="font-size:1.4rem">
+                                Click Here to Upgrade
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-panel">
+                <div class="panel-header">
+                    <div class="panel-title-container">
+                        <h2 class="panel-title">Related Products</h2>
+                        <p class="panel-subtitle">Enhance your TYPO3 site with our complementary extensions</p>
+                    </div>
+                    <div class="panel-actions">
+                        <a href="https://plugins.miniorange.com/typo3" target="_blank" class="btn btn-outline btn_secondary"
+                           style="color: var(--primary) !important;border: 1px solid var(--primary) !important;background: white !important;">
+                            🔍︎ View All Products
+                        </a>
+                    </div>
+                </div>
+
+                <div class="panel-content">
+                    <div class="products-grid">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="{f:uri.resource(path: 'Icons/miniorange.svg', extensionName: 'scim_user_provisioning')}"
+                                     alt="miniOrange SSO"
+                                     style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                            </div>
+                            <div class="product-details">
+                                <h3 class="product-title">Single Sign On</h3>
+                                <p class="product-description">Login into TYPO3 using any Third Party Identity Provider User credentials</p>
+                                <div class="product-actions">
+                                    <a href="https://plugins.miniorange.com/typo3-saml-single-sign-on-sso" target="_blank" class="btn btn-primary position">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="{f:uri.resource(path: 'Images/icon_mo.svg', extensionName: 'scim_user_provisioning')}"
+                                     alt="miniOrange SAML IDP"
+                                     style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                            </div>
+                            <div class="product-details">
+                                <h3 class="product-title">SAML IDP</h3>
+                                <p class="product-description">Login into any third party applications using TYPO3 credentials.</p>
+                                <div class="product-actions">
+                                    <a href="https://plugins.miniorange.com/typo3-saml-idp-single-sign-on-sso" target="_blank" class="btn btn-primary position">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="{f:uri.resource(path: 'Images/icon_mo.svg', extensionName: 'scim_user_provisioning')}"
+                                     alt="miniOrange Keycloak"
+                                     style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                            </div>
+                            <div class="product-details">
+                                <h3 class="product-title">Keycloak</h3>
+                                <p class="product-description">Login into TYPO3 using Keycloak User credentials</p>
+                                <div class="product-actions">
+                                    <a href="https://plugins.miniorange.com/keycloak-single-sign-on-typo3-sso-oauth-openid-connect" target="_blank" class="btn btn-primary position">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="{f:uri.resource(path: 'Images/icon_mo.svg', extensionName: 'scim_user_provisioning')}"
+                                     alt="miniOrange Auth0"
+                                     style="max-width: 100%; max-height: 100%; object-fit: contain;" />
+                            </div>
+                            <div class="product-details">
+                                <h3 class="product-title">Auth0</h3>
+                                <p class="product-description">Login into TYPO3 using Auth0 User credentials</p>
+                                <div class="product-actions">
+                                    <a href="https://plugins.miniorange.com/auth0-single-sign-on-typo3-sso-oauth-openid-connect" target="_blank" class="btn btn-primary position">View Details</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

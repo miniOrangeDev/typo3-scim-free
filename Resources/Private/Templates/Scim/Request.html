@@ -1,0 +1,37 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="title">typo3-SCIM</f:section>
+<f:section name="head"></f:section>
+<f:section name="content">
+
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+
+    <f:if condition="{user_sync_limit_exceeded}">
+        <div class="alert alert-danger" role="alert" style="margin-bottom: 12px;">
+            Your Free UserSync Limit Exceeded.Please Upgrade to Premium
+        </div>
+    </f:if>
+
+    <div class="tab scim-custom-navbar">
+        <button class="tablinks button" id="Scim_Configuration_Tab" type="button"
+                onclick="removeFlashMessage(); openTab('Scim_Configuration');">SCIM Configuration</button>
+        <button class="tablinks button" id="Sync_Configuration_Tab" type="button"
+                onclick="removeFlashMessage(); openTab('Sync_Configuration');">Sync Configuration</button>
+        <button class="tablinks button" id="Attribute_Mapping_Tab" type="button"
+                onclick="removeFlashMessage(); openTab('Attribute_Mapping');">Attribute Mapping</button>
+        <button class="tablinks button" id="Role_Mapping_Tab" type="button"
+                onclick="removeFlashMessage(); openTab('Role_Mapping');">Role Mapping</button>
+        <button class="tablinks button" id="Upgrade_Manager_Tab" type="button"
+                onclick="removeFlashMessage(); openTab('Upgrade_Manager');">Upgrade</button>
+    </div>
+
+    <input hidden id="taby" name="taby" value="{tab}">
+
+    <f:render partial="Scim/ScimConfiguration" arguments="{_all}" />
+    <f:render partial="Scim/SyncConfiguration" arguments="{_all}" />
+    <f:render partial="Scim/AttributeMapping" arguments="{_all}" />
+    <f:render partial="Scim/RoleMapping" arguments="{_all}" />
+
+    <f:render partial="Scim/Upgrade" arguments="{_all}" />
+</f:section>
+</html>

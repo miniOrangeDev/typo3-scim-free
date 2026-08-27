@@ -1,0 +1,23 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Miniorange\Scim\:
+    resource: '../Classes/*'
+
+  Miniorange\Scim\Controller\ScimController:
+    public: true
+
+  Miniorange\Scim\Controller\ScimEndpointController:
+    public: true
+
+  Miniorange\Scim\Middleware\ScimApiMiddleware:
+    public: true
+
+  Miniorange\Scim\Service\SupportService:
+    public: true
+
+  Miniorange\Scim\Service\ScimConfigurationService:
+    public: true

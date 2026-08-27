@@ -1,0 +1,5 @@
+# cat=provision//10; type=int; label=Default storage page ID (pid) for new frontend users (fe_users)
+feUsersStoragePid = 0
+
+# cat=provision//20; type=int; label=Default storage page ID (pid) for new backend users (be_users)
+beUsersStoragePid = 0
