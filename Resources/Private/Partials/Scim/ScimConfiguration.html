@@ -1,0 +1,87 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="tabcontent" id="Scim_Configuration">
+    <div class="scim-config-layout">
+        <div class="scim-config-left">
+            <fieldset class="scim-config-fieldset" {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}>
+            <h3><strong>Scim Credentials </strong></h3>
+            <hr>
+
+            <!-- <p class="scim-instruction-text">* Copy these values into your IdP. Use the Tenant URL exactly as shown *</p> -->
+
+            <div class="col-lg-8 tile scim-config-tile">
+                <form action="" method="post" id="scim_credentials_form">
+                    <input type="hidden" name="mo_scim_form_token" value="{formToken}"/>
+                    <div class="scim-form-row">
+                        <label class="scim-form-label" for="scim_base_url"><strong>SCIM Base URL</strong></label>
+                        <div class="scim-form-field">
+                            <div class="scim-copy-input-group">
+                                <input class="form-control scim-copy-input" id="scim_base_url" name="scim_base_url" type="text"
+                                       value="{scim_base_url}" readonly="readonly"
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                                <button type="button"
+                                        class="scim-copy-btn"
+                                        data-copy-target="scim_base_url"
+                                        title="Copy to clipboard"
+                                        aria-label="Copy SCIM Base URL"
+                                        {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}>
+                                    <span class="scim-copy-btn-icon" aria-hidden="true">
+                                        <svg class="scim-copy-icon-copy" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                        <svg class="scim-copy-icon-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row">
+                        <label class="scim-form-label" for="scim_bearer_token"><strong>SCIM Bearer Token</strong></label>
+                        <div class="scim-form-field">
+                            <div class="scim-copy-input-group">
+                                <input class="form-control scim-copy-input" id="scim_bearer_token" name="scim_bearer_token" type="text"
+                                       value="{scim_bearer_token}" readonly="readonly"
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                                <button type="button"
+                                        class="scim-copy-btn"
+                                        data-copy-target="scim_bearer_token"
+                                        title="Copy to clipboard"
+                                        aria-label="Copy SCIM Bearer Token"
+                                        {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}>
+                                    <span class="scim-copy-btn-icon" aria-hidden="true">
+                                        <svg class="scim-copy-icon-copy" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                        </svg>
+                                        <svg class="scim-copy-icon-check" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row scim-form-row-actions">
+                        <span class="scim-form-label"></span>
+                        <div class="scim-form-field">
+                            <button class="btn btn-primary" name="submit" type="submit" value="Regenerate New Token"
+                                    {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}>
+                                Regenerate New Token
+                            </button>
+                            <input type="hidden" name="option" value="mo_scim_regenerate_token"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </fieldset>
+        </div>
+        <div class="scim-config-right">
+            <f:render partial="Scim/SupportForm" arguments="{email: email, formToken: formToken, formSuffix: 'scimconfig', returnTab: 'Scim_Configuration'}" />
+        </div>
+    </div>
+</div>
+</html>

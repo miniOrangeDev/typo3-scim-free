@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<h3><strong>Support</strong></h3>
+<hr>
+&nbsp;
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile scim-support-tile">
+            <div class="row">
+                <div class="col-lg-10">
+                    <form action="" method="post" id="support_form_{formSuffix}">
+                        <p><b>Need any help? Just send us a query and we will get back to you soon.</b></p>
+                        <input name="option" type="hidden" value="mo_scim_contact_us_query_option"/>
+                        <input name="return_tab" type="hidden" value="{returnTab}"/>
+                        <input name="mo_scim_form_token" type="hidden" value="{formToken}"/>
+                        &nbsp;
+                        <div class="form-group">
+                            <input class="form-control" name="mo_scim_contact_us_email"
+                                   placeholder="Enter your email" type="email" value="{email}" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" name="mo_scim_contact_us_phone"
+                                   placeholder="Enter your phone number for phone support [optional]"
+                                   type="tel">
+                        </div>
+
+                        <div class="form-group">
+                            <textarea class="form-control" name="mo_scim_contact_us_query"
+                                      placeholder="Enter your query here" rows="6" required></textarea>
+                        </div>
+                        <div class="tile-footer" style="text-align:left">
+                            <button class="btn btn-primary" name="submit" type="submit"
+                                    onclick="jQuery('#support_form_{formSuffix}').submit();">Submit Query</button>
+                        </div>
+
+                        <br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

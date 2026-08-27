@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<head>
+    <f:be.pageRenderer />
+    <title><f:render section="title" /></title>
+    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:scim_user_provisioning/Resources/Public/Css/oauth/bootstrap.min.css')}" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:scim_user_provisioning/Resources/Public/Css/oauth/font-awesome.min.css')}" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:scim_user_provisioning/Resources/Public/Css/oauth/main.css')}" />
+    <link rel="stylesheet" href="{f:uri.resource(path: 'EXT:scim_user_provisioning/Resources/Public/Css/oauth/upgrade.css')}" />
+    <script src="{f:uri.resource(path: 'EXT:scim_user_provisioning/Resources/Public/JavaScript/oauth/jquery.min.js')}"></script>
+    <script src="{f:uri.resource(path: 'EXT:scim_user_provisioning/Resources/Public/JavaScript/oauth/bootstrap.min.js')}"></script>
+    <script src="{f:uri.resource(path: 'EXT:scim_user_provisioning/Resources/Public/JavaScript/oauth/main.js')}"></script>
+    <f:render section="head" optional="true" />
+</head>
+<body>
+<f:render section="content"/>
+</body>
+</html>

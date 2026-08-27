@@ -1,0 +1,125 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="tabcontent" id="Role_Mapping">
+    <div class="scim-config-layout">
+        <div class="scim-config-left">
+            <fieldset class="scim-config-fieldset" disabled="disabled">
+            <form action="" id="role_mapping_form" method="post" name="role_mapping">
+
+                <h3><strong>Backend Users</strong> <span class="premiumMessage">[Available in Premium]</span></h3>
+                <hr>
+
+                <div class="col-lg-10 tile scim-config-card">
+                    <div class="scim-form-row scim-form-section">
+                        <span class="scim-form-label"><strong>Provisioning</strong></span>
+                        <div class="scim-form-field scim-checkbox-group">
+                            <label class="scim-inline-checkbox">
+                                <input type="checkbox" name="mo_scim_update_backend_roles" value="1" disabled="disabled"
+                                       {f:if(condition: update_backend_roles, then: 'checked="checked"')}/>
+                                Update Backend Roles on Provisioning
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row scim-form-section">
+                        <label class="scim-form-label" for="mo_scim_be_default_group_uid"><strong>Default Fallback Group</strong></label>
+                        <div class="scim-form-field">
+                            <select class="form-control" id="mo_scim_be_default_group_uid" name="mo_scim_be_default_group_uid" disabled="disabled">
+                                <option value="0">— Select be_groups record —</option>
+                                <f:for each="{be_groups}" as="beGroup">
+                                    <option value="{beGroup.uid}"
+                                            {f:if(condition: '{backend_default_group_uid} == {beGroup.uid}', then: 'selected="selected"')}>
+                                        [{beGroup.uid}] {beGroup.title}
+                                    </option>
+                                </f:for>
+                            </select>
+                            <p class="help-block">This role will be assigned if no specific role mapping is found.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- <div class="scim-form-row scim-form-section">
+                        <span class="scim-form-label"><strong>Group Mapping Rules</strong></span>
+                        <div class="scim-form-field">
+                            <p class="help-block">Each row maps external SCIM group tokens to one TYPO3 backend group.</p>
+                        </div>
+                    </div>
+
+                    <f:for each="{be_groups}" as="beGroup">
+                        <div class="scim-form-row scim-form-section">
+                            <label class="scim-form-label" for="mo_scim_be_role_map_{beGroup.uid}">
+                                <strong>[{beGroup.uid}] {beGroup.title}</strong>
+                            </label>
+                            <div class="scim-form-field">
+                                <input class="form-control"
+                                       id="mo_scim_be_role_map_{beGroup.uid}"
+                                       name="settings[roleMapping][backend][{beGroup.uid}]"
+                                       type="text"
+                                       value="{beGroup.role_mapping_tokens}"
+                                       placeholder="Semi-colon(;) separated Group/Role values for {beGroup.title}"
+                                       disabled="disabled"/>
+                            </div>
+                        </div>
+                    </f:for>
+
+                    <f:if condition="{be_groups -> f:count()} == 0">
+                        <div class="scim-form-row">
+                            <span class="scim-form-label"></span>
+                            <div class="scim-form-field">
+                                <p class="help-block">No active <strong>be_groups</strong> records were found in the database.</p>
+                            </div>
+                        </div>
+                    </f:if>
+                </div> -->
+
+                <h3><strong>Frontend Users</strong> <span class="premiumMessage">[Available in Premium]</span></h3>
+                <hr>
+
+                <div class="col-lg-10 tile scim-config-card">
+                    <div class="scim-form-row scim-form-section">
+                        <span class="scim-form-label"><strong>Provisioning</strong></span>
+                        <div class="scim-form-field scim-checkbox-group">
+                            <label class="scim-inline-checkbox">
+                                <input type="checkbox" name="mo_scim_update_frontend_roles" value="1" disabled="disabled"
+                                       {f:if(condition: update_frontend_roles, then: 'checked="checked"')}/>
+                                Update Frontend Roles on Provisioning
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row scim-form-section">
+                        <label class="scim-form-label" for="mo_scim_fe_default_group_uid"><strong>Default Fallback Group</strong></label>
+                        <div class="scim-form-field">
+                            <select class="form-control" id="mo_scim_fe_default_group_uid" name="mo_scim_fe_default_group_uid" disabled="disabled">
+                                <option value="0">— Select fe_groups record —</option>
+                                <f:for each="{fe_groups}" as="feGroup">
+                                    <option value="{feGroup.uid}"
+                                            {f:if(condition: '{frontend_default_group_uid} == {feGroup.uid}', then: 'selected="selected"')}>
+                                        [{feGroup.uid}] {feGroup.title}
+                                    </option>
+                                </f:for>
+                            </select>
+                            <p class="help-block">This role will be assigned if no specific role mapping is found.
+                            </p>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="scim-form-row scim-form-row-actions" style="margin-top: 1.5rem;">
+                        <span class="scim-form-label"></span>
+                        <div class="scim-form-field">
+                            <button class="btn btn-primary" name="submit" type="button" value="Save Configuration" disabled="disabled">
+                                Save Configuration
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            </fieldset>
+        </div>
+        <div class="scim-config-right">
+            <f:render partial="Scim/SupportForm" arguments="{email: email, formToken: formToken, formSuffix: 'rolemapping', returnTab: 'Role_Mapping'}" />
+        </div>
+    </div>
+</div>
+</html>

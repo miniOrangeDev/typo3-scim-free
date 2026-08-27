@@ -1,0 +1,38 @@
+{
+  "name": "miniorange/scim_user_provisioning",
+  "description": "TYPO3 SCIM User Provisioning and Sync extension by miniOrange enables automated user provisioning and synchronization between TYPO3 and SCIM-compliant Identity Providers such as Microsoft Entra ID (Azure AD), Okta, OneLogin, Google Workspace, Keycloak, JumpCloud, Centrify, miniOrange, and other custom SCIM providers. The TYPO3 SCIM extension automates user lifecycle management by allowing users to be created, updated, synchronized, and deprovisioned in TYPO3 based on changes made in the connected Identity Provider. It provides features such as Real-Time User Provisioning, Automated User Deprovisioning, Attribute Mapping, Custom Attribute Mapping, and Group Mapping to keep TYPO3 user information synchronized with your Identity Provider. The extension makes TYPO3 a SCIM-compliant endpoint, allowing organizations to centrally manage users and reduce manual user management while maintaining consistent identity information across connected applications and systems.",
+  "type": "typo3-cms-extension",
+  "license": [
+    "GPL-2.0-or-later"
+  ],
+  "authors": [
+    {
+      "name": "miniOrange",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "typo3/cms-core": "^12 || ^13"
+  },
+  "autoload": {
+    "psr-4": {
+      "Miniorange\\Scim\\": "Classes/"
+    }
+  },
+  "version": "1.0.0",
+  "config": {
+    "allow-plugins": {
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true,
+      "ergebnis/composer-normalize": true
+    },
+    "bin-dir": ".Build/bin",
+    "sort-packages": true,
+    "vendor-dir": ".Build/vendor"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "scim_user_provisioning"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<div class="tabcontent" id="Sync_Configuration">
+    <div class="scim-config-layout">
+        <div class="scim-config-left">
+            <fieldset class="scim-config-fieldset" {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}>
+            <h3><strong>Typo3 Target User Settings</strong></h3>
+            <hr>
+
+            <div class="col-lg-8 tile scim-config-card">
+                <form action="" method="post" id="typo3_sync_form">
+                    <input type="hidden" name="option" value="mo_scim_save_sync_settings"/>
+                    <input type="hidden" name="mo_scim_form_token" value="{formToken}"/>
+
+                    <div class="scim-form-row scim-form-section">
+                        <span class="scim-form-label"><strong>Provision Target</strong></span>
+                        <div class="scim-form-field scim-checkbox-group">
+                            <label class="scim-inline-checkbox">
+                                <input type="checkbox" name="mo_scim_provision_fe" value="1"
+                                       {f:if(condition: provision_target_fe, then: 'checked="checked"')}
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                                Frontend Users (fe_users)
+                            </label>
+                            <label class="scim-inline-checkbox">
+                                <input type="checkbox" name="mo_scim_provision_be" value="1"
+                                       {f:if(condition: provision_target_be, then: 'checked="checked"')}
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                                Backend Users (be_users)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row scim-form-section">
+                        <label class="scim-form-label" for="mo_scim_fe_users_storage_pid"><strong>Frontend Users Storage Page ID (pid)</strong></label>
+                        <div class="scim-form-field">
+                            <input class="form-control" id="mo_scim_fe_users_storage_pid" name="mo_scim_fe_users_storage_pid"
+                                   type="number" min="0" step="1" value="{fe_users_storage_pid}"
+                                   placeholder="sys_folder page uid for fe_users records"
+                                   {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                            <p class="help-block">Required for fe_users inserts. Use the uid of the sys_folder where frontend users are stored.</p>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row scim-form-section">
+                        <label class="scim-form-label" for="mo_scim_be_users_storage_pid"><strong>Backend Users Storage Page ID (pid)</strong></label>
+                        <div class="scim-form-field">
+                            <input class="form-control" id="mo_scim_be_users_storage_pid" name="mo_scim_be_users_storage_pid"
+                                   type="number" min="0" step="1" value="0"
+                                   placeholder="sys_folder page uid for be_users records"
+                                   disabled="disabled"/>
+                            <p class="help-block">Required for be_users inserts. Use the uid of the sys_folder where backend users are stored.</p>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row scim-form-section">
+                        <span class="scim-form-label"><strong>Sync Actions</strong></span>
+                        <div class="scim-form-field scim-checkbox-group">
+                            <label class="scim-inline-checkbox">
+                                <input type="checkbox" name="mo_scim_sync_create" value="1"
+                                       {f:if(condition: sync_create_users, then: 'checked="checked"')}
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                                Create Users
+                            </label>
+                            <label class="scim-inline-checkbox">
+                                <input type="checkbox" name="mo_scim_sync_update" value="1"
+                                       {f:if(condition: sync_update_users, then: 'checked="checked"')}
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                                Update Users
+                            </label>
+                            <label class="scim-inline-checkbox">
+                                <input type="checkbox" name="mo_scim_sync_disable" value="1"
+                                       {f:if(condition: sync_disable_users, then: 'checked="checked"')}
+                                       {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}/>
+                                Disable/Deactivate Users
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row scim-form-section">
+                        <span class="scim-form-label"><strong>Delete users upon deactivation</strong></span>
+                        <div class="scim-form-field scim-checkbox-group">
+                            <label class="scim-inline-checkbox scim-inline-checkbox-desc" for="mo_scim_delete_on_deactivation">
+                                <input type="checkbox"
+                                       id="mo_scim_delete_on_deactivation"
+                                       name="mo_scim_delete_on_deactivation"
+                                       value="1"
+                                       disabled="disabled"
+                                       {f:if(condition: delete_on_deactivation, then: 'checked="checked"')}/>
+                                       When enabled, deactivated users will be deleted.
+                            </label>
+                            <p class="help-block"><span class="premiumMessage">[Available in Premium]</span></p>
+                        </div>
+                    </div>
+
+                    <div class="scim-form-row scim-form-row-actions">
+                        <span class="scim-form-label"></span>
+                        <div class="scim-form-field">
+                            <button class="btn btn-primary" name="submit" type="submit" value="Save Configuration"
+                                    {f:if(condition: user_sync_limit_exceeded, then: 'disabled="disabled"')}>
+                                Save Configuration
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </fieldset>
+        </div>
+        <div class="scim-config-right">
+            <f:render partial="Scim/SupportForm" arguments="{email: email, formToken: formToken, formSuffix: 'syncconfig', returnTab: 'Sync_Configuration'}" />
+        </div>
+    </div>
+</div>
